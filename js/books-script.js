@@ -4,7 +4,7 @@ const books = [
     {
         title: "1984",
         author: "Georgre Orwell",
-        category: "Fiction",
+        category: "fiction",
         year: "1949",
         image: "img/1984.webp",
     },
@@ -12,7 +12,7 @@ const books = [
     {
         title: "To Kill a Mockingbird",
         author: "Harper Lee",
-        category: "Horror",
+        category: "horror",
         year: "1960",
         image: "img/to-kill-a-mockingbird.webp"
     },
@@ -20,7 +20,7 @@ const books = [
     {
         title: "The Silk Roads",
         author: "Peter Frankopan",
-        category: "History",
+        category: "history",
         year: "2015",
         image: "img/the-silk-roads.webp"
     },
@@ -28,7 +28,7 @@ const books = [
     {
         title: "The Shining",
         author: "Stephen King",
-        category: "Horror",
+        category: "horror",
         year: "1980",
         image: "img/the-shining.webp"
     }
