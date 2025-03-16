@@ -1,13 +1,68 @@
-// Task: Create an array of JavaScript objects where each book belongs to a specific category,
-// and implement a filtering functionality that allows the user to sort books by category.
 
-// Before you start:
-// 1. Go to the "image" folder and identify the relevant books you want to include in the array.
-// 2. Use websites like saxo.dk or amazon.co.uk to find detailed information about each book.
-// 3. Each book must have a **category** (e.g., "fiction", "non-fiction", "science", etc.).
-// 4. Implement a **filtering function** that allows the user to select a category and only see the books belonging to that category.
-// TIP: Use the method from the previous task where we sorted movies and apply `.filter()` to your array.
+"use strict";
+const books = [
+    {
+        title: "1984",
+        author: "Georgre Orwell",
+        category: "Fiction",
+        year: "1949",
+        image: "img/1984.webp",
+    },
 
-// Example: Array of books categorized by genre
-// Fiction
-// {title: "The Great Gatsby", author: "F. Scott Fitzgerald", category: "fiction", publishedYear: 1925, pages: 218, images:"/img/the-great-gatsby.webp" }
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        category: "Horror",
+        year: "1960",
+        image: "img/to-kill-a-mockingbird.webp"
+    },
+
+    {
+        title: "The Silk Roads",
+        author: "Peter Frankopan",
+        category: "History",
+        year: "2015",
+        image: "img/the-silk-roads.webp"
+    },
+    
+    {
+        title: "The Shining",
+        author: "Stephen King",
+        category: "Horror",
+        year: "1980",
+        image: "img/the-shining.webp"
+    }
+
+];
+
+const categorySelect = document.getElementById("category-select");
+const booksContainer = document.getElementById("books-container");
+
+function displayBooks(filteredBooks) {
+    booksContainer.innerHTML = ""; 
+    filteredBooks.forEach(book => {
+        const bookElement = document.createElement("div");
+        bookElement.classList.add("book");
+        bookElement.innerHTML = `
+            <img src="${book.image}" alt="${book.title}">
+            <h3>${book.title}</h3>
+            <p>${book.author} (${book.year})</p>
+            <p><strong>Kategori:</strong> ${book.category}</p>
+        `;
+        booksContainer.appendChild(bookElement);
+    });
+}
+
+function filterBooks() {
+    const selectedCategory = categorySelect.value.toLowerCase();
+    if (selectedCategory === "all") {
+        displayBooks(books);
+    } else {
+        const filteredBooks = books.filter(book => book.category === selectedCategory);
+        displayBooks(filteredBooks);
+    }
+}
+
+categorySelect.addEventListener("change", filterBooks);
+
+displayBooks(books);
